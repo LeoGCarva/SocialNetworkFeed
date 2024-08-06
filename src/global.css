@@ -12,6 +12,13 @@
     --brown_300: #ea9343;
     --brown_400: #d46a3e;
     --brown_500: #9c4434;
+
+    --red_500: #F75A68;
+}
+
+:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--brown_300);
 }
 
 * {

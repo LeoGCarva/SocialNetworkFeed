@@ -1,3 +1,4 @@
+import { Comment } from '../Comment/Comment';
 import styles from './Post.module.css';
 
 export function Post(){
@@ -20,6 +21,20 @@ export function Post(){
                 <p>So do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us. 🧙‍♂️</p>
                 <p><a href="https://www.goodreads.com/quotes/tag/gandalf">👉 WizardThoughts.com</a></p>
                 <p><a href="">#FlyYouFools</a> <a href="">#FoolOfATook</a> <a href="">#F*ckBalrogs👎</a></p>
+            </div>
+
+            <form className={styles.commentForm}>
+                <strong>Deixe seu feedback</strong>
+
+                <textarea placeholder='Deixe um comentário'/>
+
+                <footer>
+                    <button type='submit'>Comentar</button>
+                </footer>
+            </form>
+
+            <div className={styles.commentList}>
+                <Comment />
             </div>
         </article>
     );

@@ -23,7 +23,7 @@ export function Comment(){
                         </button>
                     </header>
 
-                    <p>Muito Bom</p>
+                    <p>Fire 🔥🔥🔥</p>
                 </div>
 
                 <footer>

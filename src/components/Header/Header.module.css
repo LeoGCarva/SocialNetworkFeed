@@ -8,4 +8,5 @@
 
 .header > img {
     height: 2rem;
+    color: var(--brown_500);
 }

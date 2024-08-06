@@ -14,6 +14,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin-top: calc(0px - 1.5rem - 6px);
+}
+
+.avatar {
+    width: calc(3rem + 12px);
+    height: calc(3rem + 12px);
+    border-radius: 8px;
+    border: 4px solid var(--gray_800);
+    outline: 2px solid var(--brown_500);
+}
+
+.profile strong {
+    margin-top: 1rem;
+    color: var(--gray_100);
+    line-height: 1.6;
+}
+
+.profile span {
+    font-size: 0.875rem;
+    color: var(--gray_400);
+    line-height: 1.6;
 }
 
 .sidebar > footer {
@@ -24,8 +46,8 @@
 
 .sidebar  footer  a {
     background: transparent;
-    color: var(--green_500);
-    border: 1px solid var(--green_500);
+    color: var(--brown_500);
+    border: 1px solid var(--brown_500);
     border-radius: 8px;
     height: 50px;
     padding: 0 1.5rem;
@@ -36,4 +58,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    gap: 0.5rem;
+
+    transition: color 0.1s, background-color 0.1s;
+}
+
+.sidebar footer a:hover {
+    background: var(--brown_500);
+    color: var(--white);
 }

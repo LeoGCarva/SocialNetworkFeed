@@ -1,3 +1,4 @@
+import { Avatar } from '../Avatar/Avatar';
 import { Comment } from '../Comment/Comment';
 import styles from './Post.module.css';
 
@@ -6,7 +7,7 @@ export function Post(){
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <img className={styles.avatar} src="https://i.pinimg.com/736x/c0/12/bf/c012bf3b82a285f48d1e06ddbc572939.jpg"/>
+                    <Avatar src="https://i.pinimg.com/736x/c0/12/bf/c012bf3b82a285f48d1e06ddbc572939.jpg"/>
                     <div className={styles.authorInfo}>
                         <strong>Gandalf, the Grey</strong>
                         <span>Wizard and Hobbit admirer</span>

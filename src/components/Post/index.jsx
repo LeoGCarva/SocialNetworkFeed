@@ -1,28 +1,45 @@
 import { Avatar } from '../Avatar/Avatar';
 import { Comment } from '../Comment/Comment';
 
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR'
+
 import styles from './Post.module.css';
 
-export function Post(){
+export function Post({ author, publishedAt, content }){
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+        locale: ptBR
+    });
+
+    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: ptBR,
+        addSuffix: true
+    })
+
     return(
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
-                    <Avatar src="https://i.pinimg.com/736x/c0/12/bf/c012bf3b82a285f48d1e06ddbc572939.jpg"/>
+                    <Avatar src={author.avatarUrl}/>
                     <div className={styles.authorInfo}>
-                        <strong>Gandalf, the Grey</strong>
-                        <span>Wizard and Hobbit admirer</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
 
-                <time title="05 de agosto às 22:45">1 hour ago</time>
+                <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+                    {publishedDateRelativeToNow}
+                </time>
             </header>
 
             <div className={styles.content}>
-                <p>Greetings 👋</p>
-                <p>So do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us. 🧙‍♂️</p>
-                <p><a href="https://www.goodreads.com/quotes/tag/gandalf">👉 WizardThoughts.com</a></p>
-                <p><a href="">#FlyYouFools</a> <a href="">#FoolOfATook</a> <a href="">#F*ckBalrogs👎</a></p>
+                {content.map(line => {
+                    if (line.type === 'paragraph') {
+                        return <p>{line.content}</p>
+                    } else if (line.type === 'link') {
+                        return <p><a href="#">{line.content}</a></p>
+                    }
+                })}
             </div>
 
             <form className={styles.commentForm}>

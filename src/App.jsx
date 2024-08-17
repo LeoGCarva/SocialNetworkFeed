@@ -50,7 +50,7 @@ export function App() {
             return (
               <Post 
                 author={post.author}
-                contet={post.content}
+                content={post.content}
                 publishedAt={post.publishedAt}
               />
             )

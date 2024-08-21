@@ -1,60 +1,84 @@
-import { Avatar } from '../Avatar/Avatar';
-import { Comment } from '../Comment/Comment';
+import { Avatar } from "../Avatar/Avatar";
+import { Comment } from "../Comment/Comment";
 
-import { format, formatDistanceToNow } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR'
+import { format, formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 
-import styles from './Post.module.css';
+import styles from "./Post.module.css";
+import { useState } from "react";
 
-export function Post({ author, publishedAt, content }){
-    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
-        locale: ptBR
-    });
+export function Post({ author, publishedAt, content }) {
+  const [ comments, setComments ] = useState([1, 2]);
 
-    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
-        locale: ptBR,
-        addSuffix: true
-    })
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  );
 
-    return(
-        <article className={styles.post}>
-            <header>
-                <div className={styles.author}>
-                    <Avatar src={author.avatarUrl}/>
-                    <div className={styles.authorInfo}>
-                        <strong>{author.name}</strong>
-                        <span>{author.role}</span>
-                    </div>
-                </div>
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  });
 
-                <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
-                    {publishedDateRelativeToNow}
-                </time>
-            </header>
+  function handleCreateNewComment() {
+    event.preventDefault();
 
-            <div className={styles.content}>
-                {content.map(line => {
-                    if (line.type === 'paragraph') {
-                        return <p>{line.content}</p>
-                    } else if (line.type === 'link') {
-                        return <p><a href="#">{line.content}</a></p>
-                    }
-                })}
-            </div>
+    setComments([...comments, comments.length + 1]);
 
-            <form className={styles.commentForm}>
-                <strong>Leave your feedback</strong>
+    console.log(comments);
+  }
 
-                <textarea placeholder='Deixe um comentário'/>
+  return (
+    <article className={styles.post}>
+      <header>
+        <div className={styles.author}>
+          <Avatar src={author.avatarUrl} />
+          <div className={styles.authorInfo}>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
+          </div>
+        </div>
 
-                <footer>
-                    <button type='submit'>Comment</button>
-                </footer>
-            </form>
+        <time
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
+        >
+          {publishedDateRelativeToNow}
+        </time>
+      </header>
 
-            <div className={styles.commentList}>
-                <Comment />
-            </div>
-        </article>
-    );
+      <div className={styles.content}>
+        {content.map((line) => {
+          if (line.type === "paragraph") {
+            return <p>{line.content}</p>;
+          } else if (line.type === "link") {
+            return (
+              <p>
+                <a href="#">{line.content}</a>
+              </p>
+            );
+          }
+        })}
+      </div>
+
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
+        <strong>Leave your feedback</strong>
+
+        <textarea placeholder="Deixe um comentário" />
+
+        <footer>
+          <button type="submit">Comment</button>
+        </footer>
+      </form>
+
+      <div className={styles.commentList}>
+        {comments.map((comment) => {
+          return <Comment />;
+        })}
+      </div>
+    </article>
+  );
 }

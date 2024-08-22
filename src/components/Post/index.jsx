@@ -3,25 +3,25 @@ import { Avatar } from "../Avatar/Avatar";
 import { Comment } from "../Comment/Comment";
 
 import { format, formatDistanceToNow } from "date-fns";
-import ptBR from "date-fns/locale/pt-BR";
 
 import styles from "./Post.module.css";
 import { useState } from "react";
+import { enUS } from "date-fns/locale";
 
 export function Post({ author, publishedAt, content }) {
-  const [comments, setComments] = useState(["Post muito bacana, hein?!"]);
+  const [comments, setComments] = useState(["Fire 🔥🔥🔥"]);
   const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormatted = format(
     publishedAt,
     "d 'de' LLLL 'às' HH:mm'h'",
     {
-      locale: ptBR,
+      locale: enUS,
     }
   );
 
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
-    locale: ptBR,
+    locale: enUS,
     addSuffix: true,
   });
 
@@ -89,7 +89,7 @@ export function Post({ author, publishedAt, content }) {
 
         <textarea
           name="comment"
-          placeholder="Deixe um comentário"
+          placeholder="Leave your comment!"
           value={newCommentText}
           onChange={handleNewCommentChange}
           onInvalid={handleNewCommentInvalid}

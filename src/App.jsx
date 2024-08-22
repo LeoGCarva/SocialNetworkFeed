@@ -32,16 +32,16 @@ const posts = [
       avatarUrl:
         "https://64.media.tumblr.com/a6d448ac3db5265e8e01d18c4284ad8c/tumblr_nqpo9s3ixf1tgh6zro9_400.png",
       name: "Bilbo Baggins",
-      role: "Adventure and Post-breakfast Admirer",
+      role: "Dragon Slayer",
     },
     content: [
-      { type: "paragraph", content: "Greetings 👋" },
+      { type: "paragraph", content: "As I say: " },
       {
         type: "paragraph",
         content:
-          "So do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us. 🧙‍♂️",
+          "It’s a dangerous business going out your door. You step onto the road, and if you don’t keep your feet, there’s no knowing where you might be swept off to",
       },
-      { type: "link", content: "👉 WizardThoughts.com" },
+      { type: "paragraph", content: "🤔 Think about it!" },
     ],
     publishedAt: new Date("2022-05-10 20:00:00"),
   },

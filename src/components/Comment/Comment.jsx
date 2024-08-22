@@ -19,14 +19,14 @@ export function Comment({ content, onDeleteComment}){
         <div className={styles.comment}>
             <Avatar
                 hasBorder={false}
-                src="https://64.media.tumblr.com/a6d448ac3db5265e8e01d18c4284ad8c/tumblr_nqpo9s3ixf1tgh6zro9_400.png"
+                src="https://i.pinimg.com/474x/13/8d/db/138ddb61018e9b74f7fc4d9e1f1afdb6.jpg"
             />
 
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
                     <header>
                         <div className={styles.authorAndTime}>
-                            <strong>Bilbo Baggins</strong>
+                            <strong>Frodo Baggins</strong>
                             <time title="11 de maio às 08:13">2h ago</time>
                         </div>
 

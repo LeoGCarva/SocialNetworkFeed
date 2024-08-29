@@ -15,5 +15,6 @@
     }
     .wrapper{
         grid-template-columns: 1fr;
+        /* grid-template-columns 1fr para ocupar toda a fraction da tela, ou seja, tudo */
     }
 }

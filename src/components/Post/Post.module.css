@@ -81,8 +81,7 @@
     height: 6rem;
     padding: 1rem;
     border-radius: 8px;
-    color: var(--gray_100);
-    /* color --gray200*/
+    color: var(--gray_200);
     line-height: 1.4;
     margin-top: 1rem;
 }
